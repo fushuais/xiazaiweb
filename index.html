@@ -16,7 +16,9 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 <link href="css/style.css" rel="stylesheet" type="text/css"> 
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css"> 
 <link href="css/animate.css" rel="stylesheet" type="text/css">
- 
+<!-- 添加滑动功能 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
 <!--[if lt IE 9]>
     <script src="js/respond-1.1.0.min.js"></script>
     <script src="js/html5shiv.js"></script>
@@ -35,7 +37,7 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
           <div class="col-md-12">
 		   
             <div class="top_left_cont zoomIn wow animated"> 
-              <h2>Hello, my name is Sarah<br> <strong>I <i class="fa fa-heart"></i> Designing</strong></h2>
+              <h2>Hello, my name is 付帅<br> <strong>I <i class="fa fa-heart"></i> Designing</strong></h2>
 
                 <div class="underline"></div>             
               <a href="#aboutUs" class="read_more2">Who Am I</a> </div>
@@ -442,6 +444,16 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 </footer>
 
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".read_more2").click(function(e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: $("#aboutUs").offset().top
+      }, 1000);
+    });
+  });
+</script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
 <script type="text/javascript" src="js/jquery.nav.js"></script> 
