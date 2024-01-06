@@ -49,6 +49,10 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
  
 </head>
 <body>
+<!-- 添加load图------------------------ -->
+  <div id="loading" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.8); display: flex; justify-content: center; align-items: center; z-index: 999;">
+    <img src="load.gif" alt="Loading..." style="width: 100%; height:100%;" />
+  </div>
 
 <!--Hero_Section-->
 <section id="hero_section" class="top_cont_outer">
@@ -146,14 +150,14 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 		<div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-android"></i></span> </div>
           <div class="service_block">
             
-            <h3 class="animated fadeInUp wow">Android</h3>
+            <h3 class="animated fadeInUp wow">网页</h3>
             <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
           </div>
         </div>
         <div class="col-md-3"> 
 		<div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa fa-apple"></i></span> </div> 
 		<div class="service_block">
-            <h3 class="animated fadeInUp wow">Apple IOS</h3>
+            <h3 class="animated fadeInUp wow">小程序</h3>
             <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
           </div>
         </div>
@@ -161,7 +165,7 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 		<div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-html5"></i></span> </div>
           <div class="service_block">
             
-            <h3 class="animated fadeInUp wow">Design</h3>
+            <h3 class="animated fadeInUp wow">JAVA</h3>
             <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
           </div>
         </div>
@@ -524,8 +528,16 @@ mouseOverContainer.addEventListener("mouseleave", (e) => {
 
 
 </script> 
+<!-- 添加loading图 -->
+<script>
+window.addEventListener('load', function() {
+  var loading = document.getElementById('loading');
+  if (loading) {
+    loading.parentNode.removeChild(loading);
+  }
+});
 
-
+</script>
 <!-- 点击平滑过渡 -->
 <script type="text/javascript">
   $(document).ready(function() {
