@@ -107,7 +107,7 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 						<div class="col-lg-12 about-us">
 							<div class="row">
                 <!--  背景展示 原地址 <div class="col-md-6"> <img class="img-responsive" src="img/about1.png"   -->
-							<div class="col-md-6"> <img class="img-responsive" src="https://ccc.hd-r.cn/2cd2a8b2b59457f3d05455cd3fe88664.png" align=""> </div><!-- /.col-md-6 -->
+							<div class="col-md-6 " id="element"> <img class="img-responsive" src="https://ccc.hd-r.cn/2cd2a8b2b59457f3d05455cd3fe88664.png" align=""> </div><!-- /.col-md-6 -->
 								<div class="col-md-6">
 									<h3>I Design Awesome  WebApps</h3>
 									<p>
@@ -387,23 +387,23 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
   <div class="container">
     <div class="row centered">
       
-      <div class="col-md-3 centered"> <img class="img img-circle lt-box" src="img/team01.jpg" height="120px" width="120px" alt="">
-        <div class="rt-box"><h4><strong>Rosy Illue</strong></h4>
+      <div class="col-md-3 centered"> 
+        <div class="rt-box"><h4><strong>工作履历</strong></h4>
         <p>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum gravida tortor.</p><br/>
 		</div>
        </div>
-         <div class="col-md-3 centered"> <img class="img img-circle lt-box" src="img/team02.jpg" height="120px" width="120px" alt="">
-        <div class="rt-box"><h4><strong>Nissy Yukjk</strong></h4>
+         <div class="col-md-3 centered"> 
+        <div class="rt-box"><h4><strong>工作履历</strong></h4>
         <p>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum gravida tortor.</p><br/>
 		</div>
        </div>
-	      <div class="col-md-3 centered"> <img class="img img-circle lt-box" src="img/team03.jpg" height="120px" width="120px" alt="">
-        <div class="rt-box"><h4><strong>Fsdf Efffl</strong></h4>
+	      <div class="col-md-3 centered"> 
+        <div class="rt-box"><h4><strong>工作履历</strong></h4>
         <p>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum gravida tortor.</p><br/>
 		</div>
        </div>
-	      <div class="col-md-3 centered"> <img class="img img-circle lt-box" src="img/team04.jpg" height="120px" width="120px" alt="">
-        <div class="rt-box"><h4><strong>Mnin Nulk</strong></h4>
+	      <div class="col-md-3 centered"> 
+        <div class="rt-box"><h4><strong>工作履历</strong></h4>
         <p>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum gravida tortor.</p><br/>
 		</div>
        </div>
@@ -467,6 +467,66 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 </footer>
 
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<!-- ------------  图片3d旋转----------------- -->
+<style>
+body {
+    /* width: 100vw;
+    height: 100vh;
+    display: flex;  */
+    /* transform-style: preserve-3d; */
+    
+    /* perspective: 500px;
+    cursor: pointer;  */
+}
+
+#element {
+    margin: auto;
+    /* width: 250px;
+    height: 250px;  */
+   
+   
+    /* border-radius: 10px; */
+    /* transform-style: preserve-3d; */
+    transition: all .1s;
+}
+
+
+</style>
+<!-- 添加页面旋转特效 -->
+
+<script>
+  const multiple = 10;
+  // const mouseOverContainer = document.getElementsByTagName("body")[0];
+const mouseOverContainer = document.getElementById("element");
+
+const element = document.getElementById("element");
+
+function transformElement(x, y) {
+    let box = element.getBoundingClientRect();
+    const calcX = -(y - box.y - box.height / 2) / multiple;
+    const calcY = (x - box.x - box.width / 2) / multiple;
+    const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
+    
+    element.style.transform = "rotateX(" + calcX + "deg) " + "rotateY(" + calcY + "deg)";
+}
+
+mouseOverContainer.addEventListener("mousemove", (e) => {
+    window.requestAnimationFrame(function () {
+        transformElement(e.clientX, e.clientY);
+    });
+});
+
+mouseOverContainer.addEventListener("mouseleave", (e) => {
+    window.requestAnimationFrame(function () {
+        element.style.transform = "rotateX(0) rotateY(0)";
+    });
+});
+
+
+</script> 
+
+
+<!-- 点击平滑过渡 -->
 <script type="text/javascript">
   $(document).ready(function() {
     $(".read_more2").click(function(e) {
@@ -485,6 +545,7 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script> 
 <script type="text/javascript" src="js/wow.js"></script> 
 <script type="text/javascript" src="js/custom.js"></script>
+
 
 </body>
 </html>
