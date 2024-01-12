@@ -48,14 +48,14 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 <!-- 聊天助手样式 ------------------->
 <style>
   #chat-circle {
-   
+   text-align: center;
+   font-size: 12px;
       position: fixed;
       bottom: 20px;
       right: 20px;
       width: 60px;
       height: 60px;
-      /* background-color: #007bff; */
-      background: url(../xiazaiweb/1.svg);
+      background: url(/resumes/1.svg);
       /* cover;可以让背景图像填充满整个背景区域。 */
       background-size: cover;
       border-radius: 50%;
@@ -66,20 +66,17 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
       display: flex;
       align-items: center;
       justify-content: center;
-
-
-
-
-
       
       
   }
-
+#big {
+}
 
 
   
   #chat-circle:hover {
       transform: scale(1.1);
+      
   }
 
   #chat-circle i {
@@ -95,9 +92,10 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
       width: 350px;
       height: 500px;
       /* border: none; */
-border: 2px solid #868080;
+border: 5px solid #868080;
 border-radius: 5%;
       display: none;
+      cursor: pointer;
   }
 </style>
 <!--[if lt IE 9]>
@@ -107,7 +105,7 @@ border-radius: 5%;
 <![endif]-->
  
 </head>
-<body>
+<body >
 <!-- 添加load图------------------------ 
   <div id="loading" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.8); display: flex; justify-content: center; align-items: center; z-index: 999;">
     <img src="load.gif" alt="Loading..." style="width: 100%; height:100%;" />
@@ -115,11 +113,10 @@ border-radius: 5%;
 
 -->
   <!-- 聊天助手 -->
-
+<div id="big">
   <div id="chat-circle">
-    
     <i class="fas fa-comment"></i>
-</div>
+</div></div>
 
 <iframe id="chat-frame"  src="https://chat18.aichatos.xyz/#/chat/1704813479151"  style="background-color: #eee3e3;z-index: 999;"></iframe>
 
@@ -642,6 +639,54 @@ window.addEventListener('load', function() {
           chatFrame.style.display = "none";
       }
   });
+// 实现拖拽
+
+// 获取元素
+
+
+// 定义变量来追踪拖拽状态和位置
+var isDragging = false;
+var initialX;
+var initialY;
+
+// 监听鼠标按下事件
+chatFrame.addEventListener("mousedown", startDrag);
+// 监听鼠标松开事件
+document.addEventListener("mouseup", stopDrag);
+// 监听鼠标移动事件
+document.addEventListener("mousemove", drag);
+
+// 当鼠标按下时触发的函数
+function startDrag(e) {
+  e.preventDefault();
+  // 记录拖拽状态和初始位置
+  isDragging = true;
+  initialX = e.clientX - chatFrame.offsetLeft;
+  initialY = e.clientY - chatFrame.offsetTop;
+}
+
+// 当鼠标松开时触发的函数
+function stopDrag() {
+  isDragging = false;
+}
+
+// 当鼠标移动时触发的函数
+function drag(e) {
+  if (isDragging) {
+    // 计算当前位置
+    var newX = e.clientX - initialX;
+    var newY = e.clientY - initialY;
+    // 设置聊天框的新位置
+    chatFrame.style.left = newX + "px";
+    chatFrame.style.top = newY + "px";
+  }
+}
+
+
+
+
+
+
 </script>
 
 
